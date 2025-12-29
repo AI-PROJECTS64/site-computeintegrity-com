@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>404 - ComputeIntegrity.com</title>
+  <meta name="robots" content="noindex,nofollow" />
+  <link rel="icon" href="/favicon.ico" />
+  <style>
+    :root{
+      --bg0:#070B16; --bg1:#0A1022;
+      --line:rgba(255,255,255,.10);
+      --text:#EAF0FF; --muted:rgba(234,240,255,.70);
+      --accent:#54F0FF;
+      --shadow: 0 20px 70px rgba(0,0,0,.55);
+      --radius: 22px;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; min-height:100vh; display:grid; place-items:center;
+      font-family:var(--sans); color:var(--text);
+      background:
+        radial-gradient(1200px 700px at 20% -10%, rgba(124,92,255,.22), transparent 60%),
+        radial-gradient(900px 600px at 110% 10%, rgba(84,240,255,.18), transparent 55%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      padding:24px;
+    }
+    .card{
+      width:min(880px, 100%);
+      border-radius: var(--radius);
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      box-shadow: var(--shadow);
+      padding:28px;
+    }
+    h1{margin:0 0 10px; font-size:26px}
+    p{margin:0; color:var(--muted); line-height:1.6}
+    .row{display:flex; gap:10px; flex-wrap:wrap; margin-top:16px}
+    a{
+      text-decoration:none; color:var(--text);
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      padding:12px 14px; border-radius: 14px;
+      display:inline-flex; align-items:center; gap:10px;
+    }
+    a:hover{background:rgba(255,255,255,.08)}
+    .badge{
+      width:10px; height:10px; border-radius:50%;
+      background: var(--accent);
+      box-shadow: 0 0 18px rgba(84,240,255,.55);
+    }
+    .fine{
+      margin-top:18px; font-size:12px; color:rgba(234,240,255,.62);
+      border-top:1px solid rgba(255,255,255,.10); padding-top:14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1><span class="badge"></span> Page not found</h1>
+    <p>
+      The page you requested does not exist. ComputeIntegrity.com is a descriptive, non-commercial observatory.
+      It provides no services and no advice.
+    </p>
+
+    <div class="row">
+      <a href="/">Return to homepage</a>
+      <a href="/concept-note.html">Concept Note (EN)</a>
+      <a href="mailto:contact@computeintegrity.com">contact@computeintegrity.com</a>
+    </div>
+
+    <div class="fine">
+      Short disclaimer: No affiliation, no endorsement, no audit, no certification, no compliance assessment, no penetration testing, no legal or security advice.
+      All trademarks belong to their respective owners.
+    </div>
+  </div>
+</body>
+</html>
