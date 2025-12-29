@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Concept Note - Compute Integrity | ComputeIntegrity.com</title>
+  <meta name="description" content="Concept Note (EN): Compute Integrity as board-readable governance language for verifiable execution conditions, integrity evidence, and attestation concepts." />
+  <meta name="robots" content="index,follow" />
+
+  <link rel="icon" href="/favicon.ico" />
+  <meta property="og:title" content="Concept Note - Compute Integrity" />
+  <meta property="og:description" content="Compute integrity as governance language: definitions, scope, evidence, and guardrails for neutral stewardship." />
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="/og.jpg" />
+  <meta property="og:url" content="https://www.computeintegrity.com/concept-note.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <style>
+    :root{
+      --bg0:#070B16;
+      --bg1:#0A1022;
+      --card:rgba(255,255,255,.06);
+      --line:rgba(255,255,255,.10);
+      --text:#EAF0FF;
+      --muted:rgba(234,240,255,.72);
+      --muted2:rgba(234,240,255,.58);
+      --accent:#54F0FF;
+      --shadow: 0 20px 70px rgba(0,0,0,.55);
+      --radius: 18px;
+      --radius2: 24px;
+      --max: 920px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:var(--sans);
+      color:var(--text);
+      background:
+        radial-gradient(1200px 700px at 20% -10%, rgba(124,92,255,.22), transparent 60%),
+        radial-gradient(900px 600px at 110% 10%, rgba(84,240,255,.18), transparent 55%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px 22px 64px}
+    .top{
+      display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap;
+      padding:6px 0 18px;
+    }
+    .brand{display:flex; align-items:center; gap:12px; text-decoration:none}
+    .logo{
+      width:38px;height:38px;border-radius:12px;
+      background: rgba(255,255,255,.06);
+      border:1px solid var(--line);
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      overflow:hidden;
+    }
+    .logo img{width:100%;height:100%;object-fit:cover}
+    .t1{font-weight:650; font-size:14px; line-height:1.1}
+    .t2{font-size:12px; color:var(--muted2)}
+    .btnRow{display:flex; gap:10px; flex-wrap:wrap}
+    .btn{
+      text-decoration:none;
+      display:inline-flex; align-items:center; gap:10px;
+      padding:10px 12px;
+      border-radius: 14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      color: var(--text);
+      font-size:12.5px;
+    }
+    .btn:hover{background:rgba(255,255,255,.08)}
+    .hero{
+      margin-top:10px;
+      padding:26px 22px;
+      border-radius: var(--radius2);
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      box-shadow: var(--shadow);
+    }
+    h1{margin:0 0 8px; font-size:26px}
+    .sub{margin:0; color:var(--muted); line-height:1.65; font-size:14px}
+    .meta{
+      margin-top:12px;
+      display:flex; gap:10px; flex-wrap:wrap; align-items:center;
+      color: rgba(234,240,255,.66);
+      font-family: var(--mono);
+      font-size:12px;
+    }
+    .dot{width:7px;height:7px;border-radius:50%; background:var(--accent); box-shadow:0 0 18px rgba(84,240,255,.55)}
+    article{
+      margin-top:14px;
+      border-radius: var(--radius2);
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      padding: 22px 22px;
+    }
+    h2{font-size:16px; margin:18px 0 8px}
+    p{margin:0 0 12px; color:var(--muted); line-height:1.75; font-size:14px}
+    ul{margin:8px 0 14px 18px; color:var(--muted); line-height:1.7; font-size:14px}
+    li{margin:6px 0}
+    .callout{
+      margin:16px 0;
+      padding:14px 14px;
+      border-radius: 16px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      color: rgba(234,240,255,.66);
+    }
+    .callout strong{color: rgba(234,240,255,.88)}
+    .refs a{color: rgba(234,240,255,.88); text-decoration:none}
+    .refs a:hover{text-decoration:underline}
+    footer{
+      margin-top:16px;
+      padding-top:16px;
+      border-top:1px solid rgba(255,255,255,.10);
+      color: rgba(234,240,255,.62);
+      font-size:12px;
+      line-height:1.6;
+    }
+    .small{font-size:12px; color: rgba(234,240,255,.60); line-height:1.6}
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="top">
+      <a class="brand" href="/">
+        <div class="logo"><img src="/logo-computeintegrity.png" alt="ComputeIntegrity logo"></div>
+        <div>
+          <div class="t1">ComputeIntegrity.com</div>
+          <div class="t2">Concept Note (EN)</div>
+        </div>
+      </a>
+      <div class="btnRow">
+        <a class="btn" href="/">Homepage</a>
+        <a class="btn" href="/Acquisition%20Brief%20ComputeIntegrity-EN-202511.pdf">Acquisition Brief (EN)</a>
+        <a class="btn" href="/Acquisition%20Brief%20ComputeIntegrity-202511.pdf">Brief (FR)</a>
+        <a class="btn" href="mailto:contact@computeintegrity.com">contact@computeintegrity.com</a>
+      </div>
+    </div>
+
+    <div class="hero">
+      <h1>Compute Integrity as Governance Language</h1>
+      <p class="sub">
+        This note defines <strong>compute integrity</strong> as board-readable language for a foundational requirement:
+        the ability to demonstrate that a computing environment is running the intended software on a trustworthy platform,
+        without unauthorized modification, and that this state can be attested in a way that relying parties can verify.
+      </p>
+      <div class="meta"><span class="dot"></span><span>Descriptive only</span><span>•</span><span>No services</span><span>•</span><span>Non-affiliated</span></div>
+    </div>
+
+    <article>
+      <h2>1. Definition and scope</h2>
+      <p>
+        Compute integrity is not a single product and not a vendor claim. It is a category that becomes meaningful when integrity evidence
+        can be expressed, verified, and referenced in governance and procurement language.
+      </p>
+      <p>
+        In plain terms, compute integrity answers a simple question: <strong>can the system prove it is running what it should be running</strong>,
+        on a platform whose trust anchors are understood, and that it has not been silently altered.
+      </p>
+
+      <h2>2. Where the category shows up (descriptive reality)</h2>
+      <ul>
+        <li><strong>Measured boot and chain-of-trust</strong> approaches that record integrity measurements over startup stages.</li>
+        <li><strong>Hardware-rooted trust primitives</strong> used as foundations (for example TPM-based measurement and related approaches), without reducing the category to one technology.</li>
+        <li><strong>Remote attestation concepts</strong> where a verifier validates claims about the state of a device or workload.</li>
+        <li><strong>Integrity verification expectations</strong> in critical deployments where assurance evidence is required.</li>
+      </ul>
+
+      <div class="callout">
+        <strong>Important:</strong> This site does not provide operational guidance, configurations, or exploitation-oriented detail. The goal is a neutral,
+        defensible framing of the category, not a how-to manual.
+      </div>
+
+      <h2>3. Why it matters now</h2>
+      <p>
+        Three converging forces move compute integrity from engineering concerns to board and procurement language.
+        First, resilience expectations shift the question from “is it secure” to “can it prove, continuously and verifiably, that it is not compromised.”
+        Second, European cyber and product-security trajectories increasingly reward measurable and attestable assurance properties over time.
+        Third, AI deployment at scale expands the trust problem: even if an output is signed or logged, stakeholders still ask whether the environment that produced it was trustworthy.
+      </p>
+
+      <h2>4. A neutral framework (five dimensions)</h2>
+      <p>
+        A practical way to keep the category legible, without turning it into a product pitch, is to structure it as a simple five-dimension framework.
+        These dimensions are descriptive lenses. They do not imply a certification.
+      </p>
+      <ul>
+        <li><strong>Integrity evidence:</strong> what observations or measurements can be produced as evidence of state.</li>
+        <li><strong>Attestation and verification:</strong> how evidence is conveyed and how a relying party validates it at a high level.</li>
+        <li><strong>Policy and relying parties:</strong> who relies on integrity claims, and what policies determine acceptance.</li>
+        <li><strong>Lifecycle coverage:</strong> how integrity concerns differ across boot, update, runtime, and recovery.</li>
+        <li><strong>Governance language:</strong> how integrity requirements are expressed in risk, assurance, and procurement narratives.</li>
+      </ul>
+
+      <h2>5. Why it will matter for AI systems</h2>
+      <p>
+        AI trust debates often focus on outputs, logs, and provenance. Compute integrity is the foundation beneath those layers.
+        If an organisation requires trustworthy automated decisions, it eventually needs credible assumptions about the execution environment that produced those decisions.
+        Integrity evidence makes higher-level guarantees more meaningful, without claiming to “solve” AI risk.
+      </p>
+
+      <h2>6. Guardrails for safe stewardship</h2>
+      <ul>
+        <li><strong>Non-affiliation:</strong> no suggestion of official status, endorsement, partnership, or certification by any authority or standards body.</li>
+        <li><strong>No services:</strong> no offer of pentesting, audit, certification, compliance assessment, or security operations.</li>
+        <li><strong>No guarantees:</strong> no “compliance assured,” no “certified,” no “approved.”</li>
+        <li><strong>Neutral design:</strong> no institutional mimicry, no third-party logos, no confusing visual identity.</li>
+        <li><strong>Trademark respect:</strong> all trademarks belong to their respective owners.</li>
+      </ul>
+
+      <h2>7. References (starting points)</h2>
+      <p class="small refs">
+        IETF RATS: <a href="https://datatracker.ietf.org/wg/rats/about/" rel="noopener noreferrer" target="_blank">Working Group</a> ·
+        <a href="https://datatracker.ietf.org/doc/rfc9334/" rel="noopener noreferrer" target="_blank">RFC 9334</a> ·
+        <a href="https://datatracker.ietf.org/doc/rfc9335/" rel="noopener noreferrer" target="_blank">RFC 9335</a><br/>
+        Trusted Computing Group: <a href="https://trustedcomputinggroup.org/" rel="noopener noreferrer" target="_blank">TCG</a><br/>
+        NIST Platform Firmware Resiliency: <a href="https://csrc.nist.gov/publications/detail/sp/800-193/final" rel="noopener noreferrer" target="_blank">SP 800-193</a><br/>
+        EU context: <a href="https://digital-strategy.ec.europa.eu/en/policies/cyber-resilience-act" rel="noopener noreferrer" target="_blank">Cyber Resilience Act</a> (European Commission), <a href="https://www.enisa.europa.eu/topics/cybersecurity-policy/cyber-resilience-act" rel="noopener noreferrer" target="_blank">ENISA overview</a>
+      </p>
+
+      <footer>
+        <strong>Disclaimer:</strong> ComputeIntegrity.com is a descriptive digital asset and a neutral observatory.
+        It is not an official portal and has no affiliation with any regulator, standards body, public authority, or private company.
+        It provides no cybersecurity service, no audit, no certification, no compliance assessment, no penetration testing, and no legal, regulatory, or security advice.
+        External links are provided for reference only. All trademarks belong to their respective owners.
+      </footer>
+    </article>
+  </div>
+</body>
+</html>
