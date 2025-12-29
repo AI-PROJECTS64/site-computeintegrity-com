@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Compute Integrity - ComputeIntegrity.com</title>
+  <meta name="description" content="ComputeIntegrity.com is an independent, descriptive domain hosting a neutral observatory on compute integrity: verifiable execution conditions, integrity evidence, and governance language for trusted computing." />
+  <meta name="robots" content="index,follow" />
+
+  <link rel="icon" href="/favicon.ico" />
+  <meta property="og:title" content="Compute Integrity - ComputeIntegrity.com" />
+  <meta property="og:description" content="A neutral observatory on compute integrity: evidence, attestation concepts, and governance language for trusted computing." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/og.jpg" />
+  <meta property="og:url" content="https://www.computeintegrity.com/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <style>
+    :root{
+      --bg0:#070B16;
+      --bg1:#0A1022;
+      --card:rgba(255,255,255,.06);
+      --card2:rgba(255,255,255,.08);
+      --line:rgba(255,255,255,.10);
+      --text:#EAF0FF;
+      --muted:rgba(234,240,255,.72);
+      --muted2:rgba(234,240,255,.58);
+      --accent:#54F0FF;
+      --accent2:#7C5CFF;
+      --shadow: 0 20px 70px rgba(0,0,0,.55);
+      --radius: 18px;
+      --radius2: 24px;
+      --max: 1040px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--sans);
+      color:var(--text);
+      background:
+        radial-gradient(1200px 700px at 20% -10%, rgba(124,92,255,.22), transparent 60%),
+        radial-gradient(900px 600px at 110% 10%, rgba(84,240,255,.18), transparent 55%),
+        radial-gradient(800px 700px at 40% 110%, rgba(84,240,255,.10), transparent 60%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      letter-spacing:.1px;
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px 22px 64px}
+    header{
+      display:flex; align-items:center; justify-content:space-between; gap:16px;
+      padding:6px 0 22px;
+    }
+    .brand{display:flex; align-items:center; gap:12px; text-decoration:none}
+    .logo{
+      width:40px;height:40px;border-radius:12px;
+      background: rgba(255,255,255,.06);
+      border:1px solid var(--line);
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      display:grid; place-items:center; overflow:hidden;
+    }
+    .logo img{width:100%;height:100%;object-fit:cover}
+    .brand span{display:block; line-height:1.1}
+    .brand .t1{font-weight:650; font-size:14px}
+    .brand .t2{font-size:12px; color:var(--muted2)}
+    nav{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end}
+    .chip{
+      text-decoration:none;
+      font-size:12px;
+      color:var(--muted);
+      padding:9px 12px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background: rgba(255,255,255,.04);
+    }
+    .chip:hover{background:rgba(255,255,255,.07)}
+    .hero{
+      margin-top:10px;
+      padding:34px 26px;
+      border-radius: var(--radius2);
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      box-shadow: var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+    .hero:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(900px 320px at 30% 0%, rgba(84,240,255,.12), transparent 60%),
+                  radial-gradient(600px 260px at 100% 30%, rgba(124,92,255,.12), transparent 60%);
+      pointer-events:none;
+    }
+    .hero > *{position:relative}
+    h1{margin:0 0 10px; font-size:34px; letter-spacing:.2px}
+    .sub{
+      margin:0 0 18px;
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.55;
+      max-width: 78ch;
+    }
+    .kicker{
+      display:inline-flex; gap:8px; align-items:center;
+      font-family: var(--mono);
+      font-size:12px;
+      color: rgba(234,240,255,.74);
+      background: rgba(255,255,255,.04);
+      border:1px solid var(--line);
+      padding:8px 10px;
+      border-radius:999px;
+      margin-bottom:14px;
+    }
+    .dot{
+      width:7px; height:7px; border-radius:50%;
+      background: var(--accent);
+      box-shadow: 0 0 18px rgba(84,240,255,.55);
+    }
+    .ctaRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+    .btn{
+      text-decoration:none;
+      display:inline-flex; align-items:center; gap:10px;
+      padding:12px 14px;
+      border-radius: 14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      color: var(--text);
+      font-size:13px;
+    }
+    .btn:hover{background:rgba(255,255,255,.08)}
+    .btn.primary{
+      border-color: rgba(84,240,255,.35);
+      background: linear-gradient(180deg, rgba(84,240,255,.14), rgba(255,255,255,.04));
+      box-shadow: 0 18px 60px rgba(84,240,255,.10);
+    }
+    .ic{
+      width:18px;height:18px;border-radius:6px;
+      display:grid; place-items:center;
+      background: rgba(84,240,255,.14);
+      border:1px solid rgba(84,240,255,.22);
+      font-family: var(--mono);
+      font-size:12px;
+      color: rgba(234,240,255,.9);
+    }
+    section{margin-top:18px}
+    .grid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:14px;
+    }
+    @media (max-width: 920px){
+      .grid{grid-template-columns:1fr}
+      h1{font-size:30px}
+    }
+    .card{
+      border-radius: var(--radius);
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      padding:18px 18px;
+    }
+    .card h2{
+      margin:0 0 8px;
+      font-size:16px;
+      letter-spacing:.2px;
+    }
+    .card p{
+      margin:0;
+      color:var(--muted);
+      font-size:13.5px;
+      line-height:1.6;
+    }
+    .list{margin:10px 0 0; padding:0; list-style:none}
+    .list li{
+      padding:10px 10px;
+      border-top:1px solid rgba(255,255,255,.08);
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.55;
+    }
+    .list li:first-child{border-top:0; padding-top:0}
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 10px;
+      border-radius: 999px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.03);
+      color: rgba(234,240,255,.78);
+      font-family: var(--mono);
+      font-size:12px;
+      margin: 10px 0 0;
+    }
+    .resources a{color: rgba(234,240,255,.88); text-decoration:none}
+    .resources a:hover{text-decoration:underline}
+    .mutedSmall{
+      font-size:12px;
+      color: var(--muted2);
+      line-height:1.55;
+    }
+    footer{
+      margin-top:22px;
+      padding:18px 2px 0;
+      border-top:1px solid rgba(255,255,255,.10);
+      color: var(--muted2);
+      font-size:12px;
+      line-height:1.6;
+    }
+    .fine{
+      margin-top:10px;
+      padding:14px 14px;
+      border-radius: 16px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      color: rgba(234,240,255,.64);
+    }
+    .hr{height:1px;background:rgba(255,255,255,.10); margin:14px 0}
+    .kbd{font-family:var(--mono); font-size:12px; color:rgba(234,240,255,.82)}
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="/">
+        <div class="logo" aria-label="ComputeIntegrity logo">
+          <img src="/logo-computeintegrity.png" alt="ComputeIntegrity logo" />
+        </div>
+        <span>
+          <span class="t1">ComputeIntegrity.com</span>
+          <span class="t2">Neutral observatory on compute integrity</span>
+        </span>
+      </a>
+
+      <nav aria-label="Primary">
+        <a class="chip" href="#definition">Definition</a>
+        <a class="chip" href="#why-now">Why now</a>
+        <a class="chip" href="#resources">Resources</a>
+        <a class="chip" href="#acquisition">Acquisition</a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="hero">
+        <div class="kicker"><span class="dot"></span><span class="kbd">DESCRIPTIVE DOMAIN • CATEGORY-GRADE • NON-COMMERCIAL</span></div>
+        <h1>Compute Integrity</h1>
+        <p class="sub">
+          <strong>Compute integrity</strong> is the ability to demonstrate that a computing environment is running the intended software on a trustworthy platform,
+          without unauthorized modification, and that this state can be attested in a way that relying parties can verify.
+        </p>
+
+        <div class="ctaRow">
+          <a class="btn primary" href="/Acquisition%20Brief%20ComputeIntegrity-EN-202511.pdf">
+            <span class="ic">EN</span><span>Acquisition Brief (EN)</span>
+          </a>
+          <a class="btn" href="/Acquisition%20Brief%20ComputeIntegrity-202511.pdf">
+            <span class="ic">FR</span><span>Brief d’acquisition (FR)</span>
+          </a>
+          <a class="btn" href="/concept-note.html">
+            <span class="ic">CN</span><span>Concept Note (EN)</span>
+          </a>
+          <a class="btn" href="mailto:contact@computeintegrity.com">
+            <span class="ic">@</span><span>contact@computeintegrity.com</span>
+          </a>
+        </div>
+
+        <div class="pill">Scope: infrastructure, governance language, integrity evidence, attestation concepts (descriptive only)</div>
+      </div>
+
+      <section class="grid" id="definition">
+        <div class="card">
+          <h2>What this site is</h2>
+          <p>
+            ComputeIntegrity.com is an independent, descriptive domain hosting a neutral observatory on compute integrity:
+            vocabulary, public references, and governance framing for integrity evidence and verifiable execution conditions.
+            It is not a product, not a vendor, and not an official portal.
+          </p>
+
+          <div class="hr"></div>
+
+          <h2>Where it exists today (descriptive reality)</h2>
+          <ul class="list">
+            <li><strong>Measured boot and chain-of-trust</strong> approaches that record integrity measurements.</li>
+            <li><strong>Hardware-rooted trust primitives</strong> used as building blocks (without reducing the category to a single technology).</li>
+            <li><strong>Remote attestation concepts</strong> where an external verifier validates claims about a device or workload state.</li>
+            <li><strong>Integrity verification expectations</strong> in critical deployments and assurance narratives.</li>
+          </ul>
+          <p class="mutedSmall" style="margin-top:10px">
+            This site intentionally avoids operational guidance. The focus is the category and the language that makes integrity evidence board-readable.
+          </p>
+        </div>
+
+        <div class="card" id="why-now">
+          <h2>Why it matters now</h2>
+          <ul class="list">
+            <li><strong>Resilience expectations</strong> shift the question from “is it secure” to “can it continuously prove it is not compromised”.</li>
+            <li><strong>Procurement and compliance pressure</strong> trends toward measurable and attestable assurance properties over time.</li>
+            <li><strong>AI deployment at scale</strong> makes execution conditions foundational for trustworthy outputs, logs, and auditability.</li>
+          </ul>
+
+          <div class="hr"></div>
+
+          <h2>What this name can become</h2>
+          <ul class="list">
+            <li>A neutral <strong>taxonomy and vocabulary hub</strong> for compute integrity and attestation concepts.</li>
+            <li>A <strong>reference index</strong> mapping how compute integrity is described across standards, guidance, and procurement language.</li>
+            <li>A curated <strong>observatory</strong> of public resources and non-controversial frameworks.</li>
+            <li>A <strong>governance framing layer</strong> linking integrity evidence to assurance, risk, and procurement narratives.</li>
+          </ul>
+
+          <p class="mutedSmall" style="margin-top:10px">
+            The asset is the domain name. Any framework, portal, index, or stewardship model would be defined and operated by the acquirer.
+          </p>
+        </div>
+      </section>
+
+      <section class="grid" id="resources">
+        <div class="card resources">
+          <h2>Resources (starting points)</h2>
+          <p class="mutedSmall">External links are provided for reference only. No endorsement is implied.</p>
+          <ul class="list">
+            <li><a href="https://datatracker.ietf.org/wg/rats/about/" rel="noopener noreferrer" target="_blank">IETF RATS Working Group (Remote ATtestation)</a></li>
+            <li><a href="https://datatracker.ietf.org/doc/rfc9334/" rel="noopener noreferrer" target="_blank">RFC 9334: RATS Architecture</a></li>
+            <li><a href="https://datatracker.ietf.org/doc/rfc9335/" rel="noopener noreferrer" target="_blank">RFC 9335: RATS Evidence, Attestation Results, Endorsements</a></li>
+            <li><a href="https://trustedcomputinggroup.org/" rel="noopener noreferrer" target="_blank">Trusted Computing Group (TCG)</a></li>
+            <li><a href="https://csrc.nist.gov/projects/platform-firmware-resiliency-guidelines" rel="noopener noreferrer" target="_blank">NIST: Platform Firmware Resiliency Guidelines (PFWG)</a></li>
+            <li><a href="https://csrc.nist.gov/publications/detail/sp/800-193/final" rel="noopener noreferrer" target="_blank">NIST SP 800-193: Platform Firmware Resiliency</a></li>
+            <li><a href="https://www.enisa.europa.eu/topics/cybersecurity-policy/cyber-resilience-act" rel="noopener noreferrer" target="_blank">ENISA: Cyber Resilience Act (context)</a></li>
+            <li><a href="https://digital-strategy.ec.europa.eu/en/policies/cyber-resilience-act" rel="noopener noreferrer" target="_blank">European Commission: Cyber Resilience Act</a></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>Portfolio connections (optional)</h2>
+          <p class="mutedSmall">
+            Compute integrity often sits beneath sovereignty, risk, and AI governance layers. These related assets may be relevant for coherent stewardship.
+          </p>
+          <ul class="list">
+            <li><a href="https://www.computesovereignty.com/" rel="noopener noreferrer" target="_blank">ComputeSovereignty.com</a></li>
+            <li><a href="https://www.modelsovereignty.com/" rel="noopener noreferrer" target="_blank">ModelSovereignty.com</a></li>
+            <li><a href="https://www.aidatacontrol.org/" rel="noopener noreferrer" target="_blank">AIDataControl.org</a></li>
+            <li><a href="https://www.globalriskarchitecture.com/" rel="noopener noreferrer" target="_blank">GlobalRiskArchitecture.com</a></li>
+          </ul>
+
+          <div class="hr"></div>
+
+          <h2 id="acquisition">Acquisition contact</h2>
+          <p class="mutedSmall">
+            For NDA and acquisition discussions: <a href="mailto:contact@computeintegrity.com">contact@computeintegrity.com</a>
+          </p>
+
+          <div class="fine" role="note" aria-label="Short disclaimer">
+            <strong>Short disclaimer:</strong> This site is descriptive and non-commercial. It is not an official portal and has no affiliation with any regulator,
+            standards body, public authority, or private company. It provides no cybersecurity service, no audit, no certification, no compliance assessment,
+            no penetration testing, and no legal, regulatory, or security advice. All trademarks belong to their respective owners.
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <div>
+          <strong>ComputeIntegrity.com</strong> is a descriptive digital asset and a neutral observatory. No services. No advice. No endorsement. No affiliation.
+          All trademarks belong to their respective owners.
+        </div>
+        <div style="margin-top:8px">
+          Contact: <a href="mailto:contact@computeintegrity.com">contact@computeintegrity.com</a> ·
+          <span id="y"></span>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
